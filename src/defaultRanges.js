@@ -4,7 +4,11 @@ import {
   startOfDay,
   startOfMonth,
   endOfMonth,
+  startOfYear,
+  endOfYear,
   addMonths,
+  startOfQuarter,
+  endOfQuarter,
   startOfWeek,
   endOfWeek,
   isSameDay,
@@ -24,6 +28,14 @@ const defineds = {
   endOfMonth: endOfMonth(new Date()),
   startOfLastMonth: startOfMonth(addMonths(new Date(), -1)),
   endOfLastMonth: endOfMonth(addMonths(new Date(), -1)),
+  startOfQuarter: startOfQuarter(new Date()),
+  endOfQuarter: endOfQuarter(new Date()),
+  startOfLastQuarter: startOfQuarter(addQuarters(new Date(), -1)),
+  endOfLastQuarter: endOfQuarter(addQuarters(new Date(), -1)),
+  startOfYear: startOfYear(new Date()),
+  endOfYear: endOfYear(new Date()),
+  startOfLastYear: startOfYear(addYears(new Date(), -1)),
+  endOfLastYear: endOfYear(addYears(new Date(), -1)),
 };
 
 const staticRangeHandler = {
@@ -50,14 +62,6 @@ export const defaultStaticRanges = createStaticRanges([
     }),
   },
   {
-    label: 'Yesterday',
-    range: () => ({
-      startDate: defineds.startOfYesterday,
-      endDate: defineds.endOfYesterday,
-    }),
-  },
-
-  {
     label: 'This Week',
     range: () => ({
       startDate: defineds.startOfWeek,
@@ -83,6 +87,34 @@ export const defaultStaticRanges = createStaticRanges([
     range: () => ({
       startDate: defineds.startOfLastMonth,
       endDate: defineds.endOfLastMonth,
+    }),
+  },
+  {
+    label: 'This Quarter',
+    range: () => ({
+      startDate: defineds.startOfQuarter,
+      endDate: defineds.endOfQuarter,
+    }),
+  },
+  {
+    label: 'Last Quarter',
+    range: () => ({
+      startDate: defineds.startOfLastQuarter,
+      endDate: defineds.endOfLastQuarter,
+    }),
+  },
+  {
+    label: 'This Year',
+    range: () => ({
+      startDate: defineds.startOfYear,
+      endDate: defineds.endOfYear,
+    }),
+  },
+  {
+    label: 'Last Year',
+    range: () => ({
+      startDate: defineds.startOfLastYear,
+      endDate: defineds.endOfLastYear,
     }),
   },
 ]);
